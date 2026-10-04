@@ -1,0 +1,2 @@
+; filament_colour = #FFFF71;#008000;#000000;#FFFFFF
+; filament used [mm] = 403.32, 427.98, 342.39, 333.45
