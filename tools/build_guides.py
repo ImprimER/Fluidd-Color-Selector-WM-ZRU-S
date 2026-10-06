@@ -92,7 +92,9 @@ def build(locale, t):
                   f'<circle cx="591" cy="{y}" r="10" fill="{color}" stroke="#aaa"/>', label(610, y + 5, head, 14)])
     p.extend([callout(1, 18, 104, t['note1'], 'left'), callout(2, 890, 272, t['note2'], 'right'),
               callout(3, 18, 498, t['note3'], 'left'), callout(4, 890, 648, t['note4'], 'right'), '</svg>'])
-    (root / 'docs' / f'guide-favori-{locale}.svg').write_text('\n'.join(p) + '\n', encoding='utf-8')
+    content = '\n'.join(p) + '\n'
+    (root / 'docs' / f'guide-favori-{locale}.svg').write_text(content, encoding='utf-8')
+    (root / 'docs' / f'guide-favori-v2-{locale}.svg').write_text(content, encoding='utf-8')
 
 
 for language, strings in translations.items():

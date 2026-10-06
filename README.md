@@ -22,7 +22,7 @@ Si le glisser-déposer ne fonctionne pas, ouvrir **Le glisser-déposer ne foncti
 
 ## Utiliser le favori à chaque impression
 
-![Schéma annoté des quatre étapes dans la fenêtre du favori Fluidd](docs/guide-favori-fr.svg)
+![Schéma actualisé des quatre étapes dans la fenêtre du favori Fluidd](docs/guide-favori-v2-fr.svg)
 
 1. **Vérifier les couleurs chargées dans l’imprimante.** La zone en haut de la fenêtre montre les têtes T0–T3, la couleur déclarée sur l’écran et les têtes vides. Cliquer sur **Actualiser** après un changement de filament ou de couleur sur l’écran.
 2. **Choisir le fichier.** Sélectionner un G-code OrcaSlicer déjà envoyé à Fluidd. La durée estimée, la quantité de filament, la taille du fichier et la hauteur s’affichent lorsque ces informations sont disponibles. Les pastilles montrent les couleurs utilisées dans le modèle ; la miniature apparaît si le fichier en contient une.

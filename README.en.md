@@ -22,7 +22,7 @@ If dragging does not work, open **Drag and drop not working?** on the installer 
 
 ## Use the bookmark for each print
 
-![Annotated diagram of the four steps in the Fluidd bookmark dialog](docs/guide-favori-en.svg)
+![Updated diagram of the four steps in the Fluidd bookmark dialog](docs/guide-favori-v2-en.svg)
 
 1. **Check the colors loaded in the printer.** The section at the top of the dialog shows T0–T3, their screen-declared colors, and empty toolheads. Click **Refresh** after changing a filament or its color on the printer screen.
 2. **Choose the file.** Select an OrcaSlicer G-code already uploaded to Fluidd. Estimated time, filament amount, file size, and height appear when available. Color dots show the colors used in the model; a thumbnail appears if the file contains one.
