@@ -60,7 +60,7 @@ python tools/check_favori.py
 node tests/test_bookmarklet.js
 ```
 
-The bookmark uses Moonraker’s `/server/info`, `/server/files/list`, `/server/files/gcodes`, `/server/files/config/tmt1.ini`, `/printer/objects/query`, `/printer/gcode/script`, and `/printer/print/start` routes. The last two are called only after confirmation.
+The bookmark uses Moonraker’s `/server/info`, `/server/files/list`, `/server/files/thumbnails`, `/server/files/gcodes`, `/server/files/config/tmt1.ini`, `/printer/objects/query`, `/printer/gcode/script`, and `/printer/print/start` routes. The preview loads only after a file is chosen. The last two routes are called only after confirmation.
 
 ## Technical archives
 

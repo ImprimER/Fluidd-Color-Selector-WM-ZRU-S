@@ -25,6 +25,7 @@
     .heads{margin:16px 0;padding:12px;border:1px solid #555;border-radius:7px}.heads-title{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:bold}
     .heads-title button{padding:5px 9px;font-size:13px}.heads-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:10px}
     .head{display:flex;align-items:center;gap:6px;padding:7px;background:#303136;border-radius:6px;font-size:13px;white-space:nowrap}.head .swatch{width:19px;height:19px}.head-text{min-width:0;overflow:hidden;text-overflow:ellipsis}
+    .file-preview{display:flex;align-items:center;gap:12px;margin-top:10px;padding:8px;background:#303136;border-radius:7px}.file-preview[hidden]{display:none}.file-preview img{width:96px;height:96px;object-fit:contain;background:#202125;border-radius:5px}.file-preview span{font-size:13px;color:#bbb}
     @media(max-width:560px){.heads-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.row{grid-template-columns:1fr}.arrow{display:none}}
   `;
   shadow.append(style);
@@ -35,6 +36,9 @@
   const status = document.createElement('div'); status.className = 'status'; status.setAttribute('role','status'); box.append(status);
   const filter = document.createElement('input'); filter.placeholder=tr('Rechercher un fichier','Search files'); box.append(filter);
   const fileSelect = document.createElement('select'); fileSelect.style.marginTop='8px'; box.append(fileSelect);
+  const preview=document.createElement('div');preview.className='file-preview';preview.hidden=true;box.append(preview);
+  const previewImage=document.createElement('img');previewImage.alt=tr('Aperçu du modèle','Model preview');previewImage.decoding='async';preview.append(previewImage);
+  const previewLabel=document.createElement('span');previewLabel.textContent=tr('Aperçu du G-code','G-code preview');preview.append(previewLabel);
   const headsBox=document.createElement('div');headsBox.className='heads';box.append(headsBox);
   const headsTitle=document.createElement('div');headsTitle.className='heads-title';headsBox.append(headsTitle);
   const headsLabel=document.createElement('span');headsLabel.textContent=tr('Sur l’imprimante','On the printer');headsTitle.append(headsLabel);
@@ -196,6 +200,19 @@
     return slots;
   }
   function fileUrl(path){return '/server/files/gcodes/'+path.split('/').map(encodeURIComponent).join('/');}
+  async function loadThumbnail(file,token){
+    try{
+      const thumbnails=await api('/server/files/thumbnails?filename='+encodeURIComponent(file.path));
+      if(token!==sequence || !Array.isArray(thumbnails))return;
+      const valid=thumbnails.filter(t=>typeof t.thumbnail_path==='string' && t.thumbnail_path.split('/').every(part=>part && part!=='.' && part!=='..') &&
+        Number.isFinite(t.width) && Number.isFinite(t.height) && t.width>0 && t.height>0 && Number.isFinite(t.size) && t.size<=256000);
+      valid.sort((a,b)=>Math.abs(Math.max(a.width,a.height)-96)-Math.abs(Math.max(b.width,b.height)-96));
+      if(!valid.length)return;
+      previewImage.onerror=()=>{if(token===sequence)preview.hidden=true;};
+      previewImage.src=fileUrl(valid[0].thumbnail_path);
+      preview.hidden=false;
+    }catch(_){/* Un G-code sans aperçu reste imprimable. */}
+  }
   async function readColors(file){
     const response=await fetch(fileUrl(file.path),{headers:{Range:'bytes=-131072'},credentials:'same-origin'});
     if(!response.ok || (response.status!==206 && file.size>131072)) throw new Error(tr('Lecture de la fin du G-code impossible. Impression bloquée.','Could not read the end of the G-code. Printing blocked.'));
@@ -210,8 +227,10 @@
   }
   async function chooseFile(){
     const token=++sequence; selected=null;rows=[];choices.replaceChildren();mappingTitle.hidden=true;start.disabled=true;dup.hidden=true;headWarning.hidden=true;
+    preview.hidden=true;previewImage.onerror=null;previewImage.src='';
     const path=fileSelect.value; if(!path)return;
     const file=files.find(f=>f.path===path); if(!file)return;
+    loadThumbnail(file,token);
     message(tr('Lecture des couleurs…','Reading colors…'));
     try{
       const slots=await readColors(file); if(token!==sequence)return;

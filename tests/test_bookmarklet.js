@@ -34,7 +34,7 @@ function descendants(element) {
 
 const json = result => ({ ok: true, status: 200, json: async () => ({ result }) });
 
-async function scenario(language, sensors, mapping = true) {
+async function scenario(language, sensors, mapping = true, hasThumbnail = true) {
   const root = new Element('root');
   const calls = [];
   const fetch = async (path, options = {}) => {
@@ -50,6 +50,7 @@ async function scenario(language, sensors, mapping = true) {
       return json({ status });
     }
     if (path === '/server/files/gcodes/sample.gcode') return { ok: true, status: 200, text: async () => tail };
+    if (path === '/server/files/thumbnails?filename=sample.gcode') return json(hasThumbnail ? [{ width: 32, height: 32, size: 900, thumbnail_path: '.thumbs/small.png' }, { width: 93, height: 93, size: 4000, thumbnail_path: '.thumbs/preview.png' }] : []);
     if (path === '/printer/objects/query?configfile') {
       const config = { save_variables: { filename: 'variables.cfg' }, 'gcode_macro _CHANGE_TOOL': { gcode: 'M118 tool change' } };
       for (let i = 0; i < 4; i++) config[`gcode_macro T${i}`] = { gcode: `_CHANGE_TOOL T={{printer.save_variables.variables.box_modify_t${i}}}` };
@@ -77,6 +78,10 @@ async function scenario(language, sensors, mapping = true) {
   file.value = 'sample.gcode';
   await file.onchange();
   const updated = descendants(root);
+  const preview = updated.find(element => element.className === 'file-preview');
+  const previewImage = preview.children.find(element => element.tag === 'img');
+  assert.equal(preview.hidden, !hasThumbnail, 'Preview visibility must follow thumbnail availability');
+  if (hasThumbnail) assert.equal(previewImage.src, '/server/files/gcodes/.thumbs/preview.png', 'Choose the compact thumbnail');
   const start = updated.find(element => element.tag === 'button' && element.className === 'primary');
   const toolSelectors = updated.filter(element => element.tag === 'select').slice(1);
   assert.ok(start, 'Print button missing');
@@ -126,6 +131,10 @@ async function scenario(language, sensors, mapping = true) {
   assert.equal(disabled.start.disabled, false, 'A disabled runout monitor must not hide a detected filament');
   await disabled.start.onclick();
   assert.ok(disabled.calls.some(call => call.path.startsWith('/printer/print/start')), 'Detected filament remains usable when its monitor is disabled');
+
+  const withoutThumbnail = await scenario('en-US', [true, true, true, true], true, false);
+  withoutThumbnail.toolSelectors.forEach((select, i) => { select.value = String(i); select.onchange(); });
+  assert.equal(withoutThumbnail.start.disabled, false, 'A missing thumbnail must not block printing');
 
   console.log('Bookmarklet host, language, and empty-toolhead checks passed.');
 })().catch(error => { console.error(error); process.exitCode = 1; });

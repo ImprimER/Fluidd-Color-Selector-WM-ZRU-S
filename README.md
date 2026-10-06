@@ -24,7 +24,7 @@ Si le glisser-déposer ne fonctionne pas, ouvrir **Le glisser-déposer ne foncti
 
 ![Schéma annoté des quatre étapes dans la fenêtre du favori Fluidd](docs/guide-favori-fr.svg)
 
-1. **Choisir le fichier.** Sélectionner un G-code OrcaSlicer déjà envoyé à Fluidd.
+1. **Choisir le fichier.** Sélectionner un G-code OrcaSlicer déjà envoyé à Fluidd. Un petit aperçu du modèle apparaît si le fichier en contient un.
 2. **Regarder « Sur l’imprimante ».** Cette zone montre les têtes T0–T3, la couleur déclarée sur l’écran et les têtes vides. Cliquer sur **Actualiser** après un changement de filament ou de couleur sur l’écran.
 3. **Associer les couleurs.** À gauche de chaque ligne, la pastille vient du **fichier**. Dans le choix à droite, la pastille et le numéro T0–T3 viennent de **l’imprimante**. Choisir la tête qui contient réellement la bobine voulue. Sur le schéma, « Couleur 1 » est associée à T1 ; si cette bobine était en T2, il faudrait choisir T2.
 4. **Vérifier et lancer.** Cliquer sur **Confirmer et imprimer**. Cliquer sur **Fermer** pour quitter sans imprimer.
