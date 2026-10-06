@@ -115,13 +115,17 @@ async function scenario(language, sensors, mapping = true) {
   assert.equal(incompatible.calls.filter(call => call.method === 'POST').length, 0, 'Incompatible firmware must not receive a print command');
 
   const unavailable = await scenario('en-US', [null, true, true, true]);
+  assert.equal(unavailable.toolSelectors[0].options.find(option => option.value === '1').disabled, false, 'One unavailable sensor must not hide other toolheads');
   unavailable.toolSelectors.forEach((select, i) => { select.value = String(i); select.onchange(); });
   assert.equal(unavailable.start.disabled, true, 'Unknown sensor state must disable print');
   await unavailable.start.onclick();
   assert.equal(unavailable.calls.filter(call => call.method === 'POST').length, 0, 'Unknown sensor state must not trigger a POST');
 
   const disabled = await scenario('en-US', ['disabled', true, true, true]);
-  assert.equal(disabled.start.disabled, true, 'Disabled sensor must disable print');
+  disabled.toolSelectors.forEach((select, i) => { select.value = String(i); select.onchange(); });
+  assert.equal(disabled.start.disabled, false, 'A disabled runout monitor must not hide a detected filament');
+  await disabled.start.onclick();
+  assert.ok(disabled.calls.some(call => call.path.startsWith('/printer/print/start')), 'Detected filament remains usable when its monitor is disabled');
 
   console.log('Bookmarklet host, language, and empty-toolhead checks passed.');
 })().catch(error => { console.error(error); process.exitCode = 1; });

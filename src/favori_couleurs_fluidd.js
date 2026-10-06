@@ -150,8 +150,8 @@
       fetch('/server/files/config/tmt1.ini',{credentials:'same-origin',cache:'no-store'}).then(async r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return parseHeadColors(await r.text());}),
       api('/printer/objects/query?'+sensors).then(result=>Array.from({length:4},(_,i)=>{
         const sensor=result.status?.[`filament_switch_sensor filament${i}`];
-        if(sensor?.enabled!==true || typeof sensor.filament_detected!=='boolean')throw new Error(`${tr('Capteur','Sensor')} T${i} ${tr('indisponible','unavailable')}`);
-        return sensor.filament_detected;
+        // Le firmware ne surveille que la tête active ; enabled=false n'invalide pas filament_detected.
+        return typeof sensor?.filament_detected==='boolean'?sensor.filament_detected:null;
       }))
     ]);
     headColors=results[0].status==='fulfilled'?results[0].value:null;
@@ -159,7 +159,7 @@
     headLoading=false;
     const missing=[];
     if(!headColors)missing.push(tr('couleurs de l’écran','screen colors'));
-    if(!headPresence)missing.push(tr('capteurs','sensors'));
+    if(!headPresence || headPresence.some(value=>value===null))missing.push(tr('certains capteurs','some sensors'));
     renderHeads(missing.length?`${tr('Lecture impossible','Could not read')} : ${missing.join(tr(' et ',' and '))}. ${tr('Vérifiez les têtes sur l’imprimante.','Check the toolheads on the printer.')}`:'');
     refreshHeads.disabled=busy;
     return headPresence;

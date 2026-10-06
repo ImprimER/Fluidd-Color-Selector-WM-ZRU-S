@@ -25,6 +25,7 @@ Le fichier `klipper/color_mapping_fluidd.cfg` est une autre méthode créée pou
 
 - Les codes couleur de l’écran sont lus dans `/server/files/config/tmt1.ini`. Les indices de la palette suivent les pastilles de l’écran, ligne par ligne, à partir de 0. Les valeurs hexadécimales du favori sont approximatives.
 - Les objets Klipper `filament_switch_sensor filament0` à `filament3` donnent la présence du filament. Un code couleur seul ne prouve pas qu’une bobine est chargée.
+- Le firmware peut désactiver la surveillance des capteurs des têtes inactives (`enabled=false`) et la réactiver lors du changement de tête. Le favori utilise `filament_detected` pour la présence ; une valeur manquante ou inconnue reste bloquante.
 - Les capteurs sont relus avant le lancement. Le favori bloque l’impression si une tête sélectionnée est vide ou si l’état d’un capteur ne peut pas être confirmé.
 - La couleur est celle déclarée sur l’écran de l’imprimante. Aucun capteur ne mesure la teinte réelle de la bobine.
 

@@ -25,6 +25,7 @@ The bookmark depends on the compatible WonderMaker configuration’s `T0`–`T3`
 
 - Screen color codes come from `/server/files/config/tmt1.ini`. Palette indices follow the screen swatches row by row, starting at 0. The bookmark’s hex colors are approximate.
 - Klipper objects `filament_switch_sensor filament0`–`filament3` report filament presence. A color code alone does not establish that a spool is loaded.
+- The firmware may disable monitoring for inactive toolheads (`enabled=false`) and enable it when changing tools. The bookmark uses `filament_detected` for presence; a missing or unknown value still blocks printing.
 - Sensors are checked again before starting a print. Printing is blocked when a selected toolhead is empty or a sensor state cannot be confirmed.
 - The displayed color is the one declared on the printer screen. No sensor measures the physical spool color.
 
