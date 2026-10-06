@@ -83,7 +83,7 @@
     9:{name:tr('Vert','Green'),hex:'#00B96B'},
     10:{name:tr('Jaune','Yellow'),hex:'#FFFF00'},
     11:{name:tr('Corail','Coral'),hex:'#FF7850'},
-    12:{name:tr('Lavande','Lavender'),hex:'#C9D1F1'},
+    12:{name:tr('Rose pâle','Light pink'),hex:'#DDBFDE'},
     13:{name:tr('Rose','Pink'),hex:'#DE4ADD'},
     14:{name:tr('Rouge','Red'),hex:'#FF3E55'},
     15:{name:tr('Violet','Purple'),hex:'#554AFF'},
