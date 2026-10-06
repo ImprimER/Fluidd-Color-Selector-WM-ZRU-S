@@ -1,68 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="720" viewBox="0 0 1120 720" role="img" aria-labelledby="title desc">
-<title id="title">Exemple dans le favori Fluidd</title>
-<desc id="desc">Four numbered callouts show file selection, printer colors, model-to-toolhead mapping, and print confirmation.</desc>
-<rect width="1120" height="720" fill="#edf2f6"/>
-<rect x="260" y="55" width="600" height="610" rx="16" fill="#25262a" stroke="#4c525a" stroke-width="2"/>
-<text x="284" y="100" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="23" font-weight="700">Imprimer avec les couleurs</text>
-<text x="284" y="141" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="16" font-weight="700">1. Choisir le fichier</text>
-<rect x="284" y="155" width="552" height="34" rx="5" fill="#35363a" stroke="#666"/>
-<text x="296" y="178" fill="#abb4be" font-family="Arial,sans-serif" font-size="15">Rechercher un fichier</text>
-<rect x="284" y="197" width="552" height="34" rx="5" fill="#35363a" stroke="#666"/>
-<text x="296" y="220" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="15">example.gcode</text>
-<text x="817" y="220" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="14">⌄</text>
-<rect x="284" y="248" width="552" height="112" rx="7" fill="#25262a" stroke="#565d66"/>
-<text x="298" y="273" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="15" font-weight="700">Sur l’imprimante</text>
-<rect x="733" y="258" width="89" height="28" rx="5" fill="#555a62"/>
-<text x="777" y="277" text-anchor="middle" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="13">Actualiser</text>
-<rect x="298" y="297" width="124" height="45" rx="5" fill="#303136"/>
-<rect x="430" y="297" width="124" height="45" rx="5" fill="#303136"/>
-<rect x="562" y="297" width="124" height="45" rx="5" fill="#303136"/>
-<rect x="694" y="297" width="128" height="45" rx="5" fill="#303136"/>
-<circle cx="316" cy="319" r="11" fill="none" stroke="#9ba5ad" stroke-dasharray="2 2"/>
-<circle cx="448" cy="319" r="11" fill="#000" stroke="#9ba5ad"/>
-<circle cx="580" cy="319" r="11" fill="#c99542"/>
-<circle cx="712" cy="319" r="11" fill="#fff" stroke="#9ba5ad"/>
-<text x="334" y="324" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="13">T0 · Vide</text>
-<text x="466" y="324" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="13">T1 · Noir</text>
-<text x="598" y="324" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="13">T2 · Ocre</text>
-<text x="730" y="324" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="13">T3 · Blanc</text>
-<text x="284" y="396" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="16" font-weight="700">2. Couleurs du fichier → têtes</text>
-<rect x="284" y="410" width="552" height="67" rx="7" fill="#303136"/>
-<rect x="284" y="485" width="552" height="67" rx="7" fill="#303136"/>
-<circle cx="308" cy="443" r="16" fill="#000" stroke="#a6adb3"/>
-<circle cx="308" cy="518" r="16" fill="#fff" stroke="#a6adb3"/>
-<text x="335" y="449" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="16" font-weight="700">Couleur 1</text>
-<text x="335" y="524" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="16" font-weight="700">Couleur 3</text>
-<text x="524" y="450" fill="#b8c2c9" font-family="Arial,sans-serif" font-size="21">→</text>
-<text x="524" y="525" fill="#b8c2c9" font-family="Arial,sans-serif" font-size="21">→</text>
-<rect x="554" y="424" width="266" height="38" rx="5" fill="#35363a" stroke="#666"/>
-<rect x="554" y="499" width="266" height="38" rx="5" fill="#35363a" stroke="#666"/>
-<circle cx="574" cy="443" r="10" fill="#000" stroke="#9ba5ad"/>
-<circle cx="574" cy="518" r="10" fill="#fff" stroke="#9ba5ad"/>
-<text x="592" y="449" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="15">T1 · Noir</text>
-<text x="592" y="524" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="15">T3 · Blanc</text>
-<rect x="604" y="593" width="86" height="40" rx="6" fill="#555a62"/>
-<text x="647" y="619" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="14">Fermer</text>
-<rect x="699" y="593" width="137" height="40" rx="6" fill="#25a900"/>
-<text x="767" y="619" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="12" font-weight="700">Confirmer et imprimer</text>
-<path d="M 240 176 L 284 212" stroke="#688398" stroke-width="2" fill="none"/>
-<rect x="18" y="134" width="222" height="83" rx="12" fill="#fff" stroke="#cad5de"/>
-<circle cx="42" cy="159" r="17" fill="#176eaa"/>
-<text x="42" y="165" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="700">1</text>
-<text x="68" y="162" fill="#26313d" font-family="Arial,sans-serif" font-size="17" font-weight="600"><tspan x="68" dy="0">Choisir un G-code</tspan><tspan x="68" dy="24">déjà envoyé à Fluidd</tspan></text>
-<path d="M 880 302 L 836 301" stroke="#688398" stroke-width="2" fill="none"/>
-<rect x="880" y="247" width="221" height="110" rx="12" fill="#fff" stroke="#cad5de"/>
-<circle cx="904" cy="272" r="17" fill="#176eaa"/>
-<text x="904" y="278" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="700">2</text>
-<text x="930" y="275" fill="#26313d" font-family="Arial,sans-serif" font-size="17" font-weight="600"><tspan x="930" dy="0">Vérifier les têtes</tspan><tspan x="930" dy="24">et les couleurs</tspan><tspan x="930" dy="24">sur l’imprimante</tspan></text>
-<path d="M 240 456 L 284 445" stroke="#688398" stroke-width="2" fill="none"/>
-<rect x="18" y="407" width="222" height="105" rx="12" fill="#fff" stroke="#cad5de"/>
-<circle cx="42" cy="432" r="17" fill="#176eaa"/>
-<text x="42" y="438" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="700">3</text>
-<text x="68" y="435" fill="#26313d" font-family="Arial,sans-serif" font-size="17" font-weight="600"><tspan x="68" dy="0">Associer chaque</tspan><tspan x="68" dy="24">couleur à la tête</tspan><tspan x="68" dy="24">qui la contient</tspan></text>
-<path d="M 880 621 L 836 610" stroke="#688398" stroke-width="2" fill="none"/>
-<rect x="880" y="574" width="221" height="94" rx="12" fill="#fff" stroke="#cad5de"/>
-<circle cx="904" cy="599" r="17" fill="#176eaa"/>
-<text x="904" y="605" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="700">4</text>
-<text x="930" y="602" fill="#26313d" font-family="Arial,sans-serif" font-size="17" font-weight="600"><tspan x="930" dy="0">Vérifier puis lancer</tspan><tspan x="930" dy="24">l’impression</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="800" viewBox="0 0 1120 800" role="img" aria-labelledby="title desc">
+<title id="title">Imprimer avec les couleurs</title>
+<desc id="desc">Bookmark dialog with printer colors, G-code preview, color mapping, and print confirmation.</desc>
+<rect width="1120" height="800" fill="#edf2f6"/>
+<rect x="250" y="22" width="620" height="758" rx="15" fill="#25262a" stroke="#4c525a" stroke-width="2"/>
+<text x="274" y="63" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="23" font-weight="700" >Imprimer avec les couleurs</text>
+<rect x="274" y="82" width="572" height="116" rx="7" fill="#25262a" stroke="#565d66"/>
+<text x="288" y="109" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="15" font-weight="700" >Couleurs chargées dans l’imprimante</text>
+<rect x="750" y="92" width="84" height="28" rx="5" fill="#555a62"/>
+<text x="792" y="111" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle">Actualiser</text>
+<text x="274" y="231" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="16" font-weight="700" >1. Choisir le fichier</text>
+<rect x="274" y="244" width="572" height="38" rx="5" fill="#35363a" stroke="#666"/>
+<text x="287" y="269" fill="#abb4be" font-family="Arial,sans-serif" font-size="14" font-weight="400" >Rechercher un fichier</text>
+<rect x="274" y="290" width="572" height="38" rx="5" fill="#35363a" stroke="#666"/>
+<text x="287" y="315" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="14" font-weight="400" >example.gcode</text>
+<text x="829" y="315" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="16" font-weight="400" >⌄</text>
+<rect x="274" y="337" width="572" height="108" rx="7" fill="#303136"/>
+<rect x="284" y="346" width="90" height="90" rx="5" fill="#202125"/>
+<path d="M 310 414 Q 295 390 319 367 Q 343 356 354 386 Q 362 418 337 424 Z" fill="#8c979f"/>
+<text x="274" y="480" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="16" font-weight="700" >2. Couleurs du fichier → têtes (2)</text>
+<rect x="274" y="494" width="572" height="66" rx="7" fill="#303136"/>
+<rect x="274" y="570" width="572" height="66" rx="7" fill="#303136"/>
+<rect x="588" y="665" width="85" height="40" rx="6" fill="#555a62"/>
+<rect x="682" y="665" width="164" height="40" rx="6" fill="#25a900"/>
+<text x="630" y="691" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="14" font-weight="400" text-anchor="middle">Fermer</text>
+<text x="764" y="691" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="700" text-anchor="middle">Confirmer et imprimer</text>
+<text x="846" y="744" fill="#92969e" font-family="Arial,sans-serif" font-size="11" font-weight="400" text-anchor="end">by Imprim&#x27;ER</text>
+<rect x="288" y="135" width="130" height="43" rx="5" fill="#303136"/>
+<circle cx="306" cy="156" r="10" fill="none" stroke="#aab1b7" stroke-dasharray="2 2"/>
+<text x="322" y="161" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="12" font-weight="400" >T0 · Vide</text>
+<rect x="425" y="135" width="130" height="43" rx="5" fill="#303136"/>
+<circle cx="443" cy="156" r="10" fill="#000" stroke="#aab1b7" />
+<text x="459" y="161" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="12" font-weight="400" >T1 · Noir</text>
+<rect x="562" y="135" width="130" height="43" rx="5" fill="#303136"/>
+<circle cx="580" cy="156" r="10" fill="#c99542" stroke="#aab1b7" />
+<text x="596" y="161" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="12" font-weight="400" >T2 · Ocre</text>
+<rect x="699" y="135" width="130" height="43" rx="5" fill="#303136"/>
+<circle cx="717" cy="156" r="10" fill="#fff" stroke="#aab1b7" />
+<text x="733" y="161" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="12" font-weight="400" >T3 · Blanc</text>
+<text x="392" y="368" fill="#bbb" font-family="Arial,sans-serif" font-size="12" font-weight="400" >Durée estimée</text>
+<text x="392" y="386" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="14" font-weight="700" >1 h 17 min</text>
+<text x="582" y="368" fill="#bbb" font-family="Arial,sans-serif" font-size="12" font-weight="400" >Filament</text>
+<text x="582" y="386" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="14" font-weight="700" >12,2 g</text>
+<text x="392" y="410" fill="#bbb" font-family="Arial,sans-serif" font-size="12" font-weight="400" >Taille du fichier</text>
+<text x="392" y="428" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="14" font-weight="700" >5,4 Mo</text>
+<text x="582" y="410" fill="#bbb" font-family="Arial,sans-serif" font-size="12" font-weight="400" >Hauteur</text>
+<text x="582" y="428" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="14" font-weight="700" >30 mm</text>
+<circle cx="796" cy="367" r="12" fill="#000" stroke="#aaa"/>
+<circle cx="825" cy="367" r="12" fill="#fff" stroke="#aaa"/>
+<circle cx="298" cy="527" r="16" fill="#000" stroke="#aaa"/>
+<text x="326" y="532" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="15" font-weight="700" >Couleur 1</text>
+<text x="542" y="533" fill="#b8c2c9" font-family="Arial,sans-serif" font-size="21" font-weight="400" >→</text>
+<rect x="572" y="507" width="262" height="40" rx="5" fill="#35363a" stroke="#666"/>
+<circle cx="591" cy="527" r="10" fill="#000" stroke="#aaa"/>
+<text x="610" y="532" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="14" font-weight="400" >T1 · Noir</text>
+<circle cx="298" cy="603" r="16" fill="#fff" stroke="#aaa"/>
+<text x="326" y="608" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="15" font-weight="700" >Couleur 2</text>
+<text x="542" y="609" fill="#b8c2c9" font-family="Arial,sans-serif" font-size="21" font-weight="400" >→</text>
+<rect x="572" y="583" width="262" height="40" rx="5" fill="#35363a" stroke="#666"/>
+<circle cx="591" cy="603" r="10" fill="#fff" stroke="#aaa"/>
+<text x="610" y="608" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="14" font-weight="400" >T3 · Blanc</text>
+<path d="M 230 154 L 274 154" stroke="#688398" stroke-width="2"/><rect x="18" y="104" width="212" height="96" rx="12" fill="#fff" stroke="#cad5de"/><circle cx="43" cy="130" r="17" fill="#176eaa"/><text x="43" y="136" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle">1</text><text x="69" y="135" fill="#26313d" font-family="Arial,sans-serif" font-size="16" font-weight="600" >Vérifier les couleurs</text><text x="69" y="158" fill="#26313d" font-family="Arial,sans-serif" font-size="16" font-weight="600" >sur l’imprimante</text>
+<path d="M 890 322 L 870 322" stroke="#688398" stroke-width="2"/><rect x="890" y="272" width="212" height="96" rx="12" fill="#fff" stroke="#cad5de"/><circle cx="915" cy="298" r="17" fill="#176eaa"/><text x="915" y="304" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle">2</text><text x="941" y="303" fill="#26313d" font-family="Arial,sans-serif" font-size="16" font-weight="600" >Choisir un G-code</text><text x="941" y="326" fill="#26313d" font-family="Arial,sans-serif" font-size="16" font-weight="600" >déjà envoyé à Fluidd</text>
+<path d="M 230 548 L 274 548" stroke="#688398" stroke-width="2"/><rect x="18" y="498" width="212" height="96" rx="12" fill="#fff" stroke="#cad5de"/><circle cx="43" cy="524" r="17" fill="#176eaa"/><text x="43" y="530" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle">3</text><text x="69" y="529" fill="#26313d" font-family="Arial,sans-serif" font-size="16" font-weight="600" >Associer chaque couleur</text><text x="69" y="552" fill="#26313d" font-family="Arial,sans-serif" font-size="16" font-weight="600" >à une tête chargée</text>
+<path d="M 890 698 L 870 698" stroke="#688398" stroke-width="2"/><rect x="890" y="648" width="212" height="96" rx="12" fill="#fff" stroke="#cad5de"/><circle cx="915" cy="674" r="17" fill="#176eaa"/><text x="915" y="680" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle">4</text><text x="941" y="679" fill="#26313d" font-family="Arial,sans-serif" font-size="16" font-weight="600" >Vérifier et lancer</text><text x="941" y="702" fill="#26313d" font-family="Arial,sans-serif" font-size="16" font-weight="600" >l’impression</text>
 </svg>

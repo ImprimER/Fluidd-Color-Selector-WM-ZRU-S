@@ -60,7 +60,7 @@ python tools/check_favori.py
 node tests/test_bookmarklet.js
 ```
 
-Le favori utilise les routes Moonraker `/server/info`, `/server/files/list`, `/server/files/thumbnails`, `/server/files/gcodes`, `/server/files/config/tmt1.ini`, `/printer/objects/query`, `/printer/gcode/script` et `/printer/print/start`. L’aperçu est chargé uniquement après le choix d’un fichier. Les deux dernières routes ne sont appelées qu’après confirmation.
+Le favori utilise les routes Moonraker `/server/info`, `/server/files/list`, `/server/files/metadata`, `/server/files/gcodes`, `/server/files/config/tmt1.ini`, `/printer/objects/query`, `/printer/gcode/script` et `/printer/print/start`. La miniature et les informations facultatives du G-code sont chargées uniquement après le choix d’un fichier. Les deux dernières routes ne sont appelées qu’après confirmation.
 
 ## Archives techniques
 

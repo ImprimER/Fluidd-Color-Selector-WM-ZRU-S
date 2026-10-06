@@ -31,6 +31,7 @@ html = f'''<!doctype html>
   .bookmark{{display:inline-block;background:#198a34;color:#fff;font-weight:700;text-decoration:none;border-radius:9px;padding:16px 22px;box-shadow:0 4px 12px #198a3433}}
   .bookmark:hover{{background:#13742b}}
   .hint{{font-size:14px;color:#58656f;margin:10px 0 0}}
+  .credit{{margin:20px 0 0;text-align:right;color:#87939c;font-size:12px}}
   .ready{{border-top:1px solid #e5e9ed;padding-top:20px;margin-top:24px}}
   details{{border-top:1px solid #e5e9ed;margin-top:22px;padding-top:17px}}
   summary{{cursor:pointer;font-weight:700}}
@@ -52,7 +53,7 @@ html = f'''<!doctype html>
     <p>Le favori vérifie la compatibilité de la ZR Ultra S avant de lancer l’impression. Aucune modification de la configuration de l’imprimante n’est nécessaire sur une machine compatible.</p>
     <h2>Installation</h2>
     <ol><li>Affichez la barre des favoris de votre navigateur.</li><li>Faites glisser le bouton vert ci-dessous sur cette barre.</li><li>Ouvrez Fluidd et cliquez sur le nouveau favori.</li></ol>
-    <div class="install"><a class="bookmark" href="{safe_url}">Imprimer avec les couleurs</a><p class="hint">Faites glisser ce bouton vers votre barre des favoris.</p></div>
+    <div class="install"><a class="bookmark" href="{safe_url}">🎨 Imprimer avec les couleurs</a><p class="hint">Faites glisser ce bouton vers votre barre des favoris.</p></div>
     <div class="ready"><h2>Déjà installé ?</h2><p>Remplacez votre ancien favori par celui-ci pour utiliser la dernière version. Les couleurs des têtes sont relues depuis l’imprimante à l’ouverture du favori.</p></div>
     <p class="hint">Projet expérimental, testé sur une seule ZR Ultra S avec Firefox, Chrome et Edge. Vérifiez les bobines et surveillez le début de chaque impression. Utilisation à vos risques.</p>
     <details><summary>Le glisser-déposer ne fonctionne pas ?</summary><p class="manual-text">Créez un favori, modifiez son adresse et collez le code ci-dessous à la place. Conservez le début <code>javascript:</code>.</p><button type="button" class="copy">Copier l’adresse du favori</button><span class="copy-status" role="status"></span><textarea readonly aria-label="Adresse du favori"></textarea></details>
@@ -63,11 +64,12 @@ html = f'''<!doctype html>
     <p>The bookmark checks ZR Ultra S compatibility before starting a print. No printer configuration change is needed on a compatible machine.</p>
     <h2>Install</h2>
     <ol><li>Show your browser’s bookmarks bar.</li><li>Drag the green button below onto that bar.</li><li>Open Fluidd and click the new bookmark.</li></ol>
-    <div class="install"><a class="bookmark" href="{safe_url}">Print with colors</a><p class="hint">Drag this button to your bookmarks bar.</p></div>
+    <div class="install"><a class="bookmark" href="{safe_url}">🎨 Print with colors</a><p class="hint">Drag this button to your bookmarks bar.</p></div>
     <div class="ready"><h2>Already installed?</h2><p>Replace your previous bookmark with this one to use the latest version. Toolhead colors are read from the printer when you open the bookmark.</p></div>
     <p class="hint">Experimental project, tested on one ZR Ultra S with Firefox, Chrome, and Edge. Check the spools and monitor the start of every print. Use at your own risk.</p>
     <details><summary>Drag and drop not working?</summary><p class="manual-text">Create a bookmark, edit its address, and paste the code below in its place. Keep the <code>javascript:</code> prefix.</p><button type="button" class="copy">Copy bookmark address</button><span class="copy-status" role="status"></span><textarea readonly aria-label="Bookmark address"></textarea></details>
   </section>
+  <p class="credit">by Imprim'ER</p>
 </div></main>
 <script>
 const bookmarkAddress = document.querySelector('.bookmark').getAttribute('href');

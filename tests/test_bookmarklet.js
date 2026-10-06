@@ -11,6 +11,9 @@ new vm.Script(installerScript[1]);
 assert.match(installer, /<section lang="en" hidden>/);
 assert.match(installer, /Firefox, Chrome, and Edge/);
 assert.match(installer, /Keep the <code>javascript:<\/code> prefix/);
+assert.match(installer, />🎨 Imprimer avec les couleurs<\/a>/);
+assert.match(installer, />🎨 Print with colors<\/a>/);
+assert.match(installer, /<p class="credit">by Imprim'ER<\/p>/);
 
 class Element {
   constructor(tag) {
@@ -50,7 +53,8 @@ async function scenario(language, sensors, mapping = true, hasThumbnail = true) 
       return json({ status });
     }
     if (path === '/server/files/gcodes/sample.gcode') return { ok: true, status: 200, text: async () => tail };
-    if (path === '/server/files/thumbnails?filename=sample.gcode') return json(hasThumbnail ? [{ width: 32, height: 32, size: 900, thumbnail_path: '.thumbs/small.png' }, { width: 93, height: 93, size: 4000, thumbnail_path: '.thumbs/preview.png' }] : []);
+    if (path === '/server/files/metadata?filename=sample.gcode') return json({ size: 5415782, estimated_time: 4600, filament_weight_total: 12.17, object_height: 29.96,
+      thumbnails: hasThumbnail ? [{ width: 32, height: 32, size: 900, relative_path: '.thumbs/small.png' }, { width: 93, height: 93, size: 4000, relative_path: '.thumbs/preview.png' }] : [] });
     if (path === '/printer/objects/query?configfile') {
       const config = { save_variables: { filename: 'variables.cfg' }, 'gcode_macro _CHANGE_TOOL': { gcode: 'M118 tool change' } };
       for (let i = 0; i < 4; i++) config[`gcode_macro T${i}`] = { gcode: `_CHANGE_TOOL T={{printer.save_variables.variables.box_modify_t${i}}}` };
@@ -65,6 +69,7 @@ async function scenario(language, sensors, mapping = true, hasThumbnail = true) 
     document: { documentElement: root, createElement: tag => new Element(tag), getElementById: () => null },
     location: { hostname: 'printer.local', protocol: 'http:' },
     navigator: { language }, fetch,
+    Intl,
     alert: () => { throw new Error('Unexpected alert'); },
     confirm: () => true,
     setTimeout: () => {},
@@ -73,6 +78,13 @@ async function scenario(language, sensors, mapping = true, hasThumbnail = true) 
   for (let i = 0; i < 5; i++) await new Promise(resolve => setImmediate(resolve));
   const all = descendants(root);
   const title = all.find(element => element.tag === 'h2');
+  assert.equal(all.find(element => element.className === 'credit').textContent, "by Imprim'ER");
+  const dialog = all.find(element => element.className === 'box');
+  const headsBox = all.find(element => element.className === 'heads');
+  const fileTitle = all.find(element => element.tag === 'h3');
+  assert.ok(dialog.children.indexOf(headsBox) < dialog.children.indexOf(fileTitle), 'Printer colors must precede file selection');
+  assert.equal(descendants(headsBox).find(element => element.className === 'heads-title').children[0].textContent,
+    language.startsWith('fr') ? 'Couleurs chargées dans l’imprimante' : 'Colors loaded in the printer');
   const file = all.find(element => element.tag === 'select');
   assert.ok(file, 'File selector missing');
   file.value = 'sample.gcode';
@@ -80,8 +92,20 @@ async function scenario(language, sensors, mapping = true, hasThumbnail = true) 
   const updated = descendants(root);
   const preview = updated.find(element => element.className === 'file-preview');
   const previewImage = preview.children.find(element => element.tag === 'img');
-  assert.equal(preview.hidden, !hasThumbnail, 'Preview visibility must follow thumbnail availability');
+  assert.equal(preview.hidden, false, 'File details must remain visible without a thumbnail');
+  assert.equal(previewImage.hidden, !hasThumbnail, 'Image visibility must follow thumbnail availability');
   if (hasThumbnail) assert.equal(previewImage.src, '/server/files/gcodes/.thumbs/preview.png', 'Choose the compact thumbnail');
+  const stats = preview.children.find(element => element.className === 'preview-details');
+  assert.equal(stats.children.length, 4, 'Show four compact file details');
+  assert.deepEqual(stats.children.map(element => element.children[0].textContent), language.startsWith('fr')
+    ? ['Durée estimée', 'Filament', 'Taille du fichier', 'Hauteur']
+    : ['Estimated time', 'Filament', 'File size', 'Height']);
+  assert.deepEqual(stats.children.map(element => element.children[1].textContent), language.startsWith('fr')
+    ? ['1 h 17 min', '12,2 g', '5,4 Mo', '30 mm']
+    : ['1 h 17 min', '12.2 g', '5.4 MB', '30 mm']);
+  const previewColors = preview.children.find(element => element.className === 'preview-colors');
+  assert.equal(previewColors.hidden, false, 'Model colors must appear next to the file details');
+  assert.deepEqual(previewColors.children.map(element => element.style.backgroundColor), ['#FFFF71', '#008000', '#000000', '#FFFFFF']);
   const start = updated.find(element => element.tag === 'button' && element.className === 'primary');
   const toolSelectors = updated.filter(element => element.tag === 'select').slice(1);
   assert.ok(start, 'Print button missing');

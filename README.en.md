@@ -15,7 +15,7 @@ On a compatible printer, installing the bookmark requires **no printer configura
 ## Install the bookmark once
 
 1. Open [the installer page](dist/Installer_favori_couleurs_Fluidd.html) on GitHub, click **Download raw file** (the download icon), then open the downloaded HTML file.
-2. Show your browser’s bookmarks bar and drag the green **Print with colors** button onto it.
+2. Show your browser’s bookmarks bar and drag the green **🎨 Print with colors** button onto it.
 3. Open Fluidd and click that bookmark. Replace any older bookmark from this project with this version.
 
 If dragging does not work, open **Drag and drop not working?** on the installer page. It lets you copy the address into a bookmark created manually.
@@ -24,8 +24,8 @@ If dragging does not work, open **Drag and drop not working?** on the installer 
 
 ![Annotated diagram of the four steps in the Fluidd bookmark dialog](docs/guide-favori-en.svg)
 
-1. **Choose the file.** Select an OrcaSlicer G-code already uploaded to Fluidd. A small model preview appears if the file contains one.
-2. **Check “On the printer”.** This shows T0–T3, their screen-declared colors, and empty toolheads. Click **Refresh** after changing a filament or its color on the printer screen.
+1. **Check the colors loaded in the printer.** The section at the top of the dialog shows T0–T3, their screen-declared colors, and empty toolheads. Click **Refresh** after changing a filament or its color on the printer screen.
+2. **Choose the file.** Select an OrcaSlicer G-code already uploaded to Fluidd. Estimated time, filament amount, file size, and height appear when available. Color dots show the colors used in the model; a thumbnail appears if the file contains one.
 3. **Map the colors.** The swatch on the left of each row comes from the **file**. The swatch and T0–T3 number in the choice on the right come from the **printer**. Choose the toolhead with the spool you actually want. In the diagram, “Color 1” is assigned to T1; if that spool were in T2, you would choose T2.
 4. **Check and start.** Click **Confirm and print**. Click **Close** to leave without printing.
 

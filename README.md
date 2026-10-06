@@ -15,7 +15,7 @@ Sur une machine compatible, l’installation du favori ne demande **aucune modif
 ## Installer le favori une fois
 
 1. Ouvrir [la page d’installation](dist/Installer_favori_couleurs_Fluidd.html) dans GitHub, cliquer sur **Download raw file** (icône de téléchargement), puis ouvrir le fichier HTML téléchargé.
-2. Afficher la barre des favoris du navigateur et y faire glisser le bouton vert **Imprimer avec les couleurs**.
+2. Afficher la barre des favoris du navigateur et y faire glisser le bouton vert **🎨 Imprimer avec les couleurs**.
 3. Ouvrir Fluidd et cliquer sur ce favori. Remplacer tout ancien favori du projet par cette version.
 
 Si le glisser-déposer ne fonctionne pas, ouvrir **Le glisser-déposer ne fonctionne pas ?** sur la page d’installation : elle permet de copier l’adresse à coller dans un favori créé manuellement.
@@ -24,8 +24,8 @@ Si le glisser-déposer ne fonctionne pas, ouvrir **Le glisser-déposer ne foncti
 
 ![Schéma annoté des quatre étapes dans la fenêtre du favori Fluidd](docs/guide-favori-fr.svg)
 
-1. **Choisir le fichier.** Sélectionner un G-code OrcaSlicer déjà envoyé à Fluidd. Un petit aperçu du modèle apparaît si le fichier en contient un.
-2. **Regarder « Sur l’imprimante ».** Cette zone montre les têtes T0–T3, la couleur déclarée sur l’écran et les têtes vides. Cliquer sur **Actualiser** après un changement de filament ou de couleur sur l’écran.
+1. **Vérifier les couleurs chargées dans l’imprimante.** La zone en haut de la fenêtre montre les têtes T0–T3, la couleur déclarée sur l’écran et les têtes vides. Cliquer sur **Actualiser** après un changement de filament ou de couleur sur l’écran.
+2. **Choisir le fichier.** Sélectionner un G-code OrcaSlicer déjà envoyé à Fluidd. La durée estimée, la quantité de filament, la taille du fichier et la hauteur s’affichent lorsque ces informations sont disponibles. Les pastilles montrent les couleurs utilisées dans le modèle ; la miniature apparaît si le fichier en contient une.
 3. **Associer les couleurs.** À gauche de chaque ligne, la pastille vient du **fichier**. Dans le choix à droite, la pastille et le numéro T0–T3 viennent de **l’imprimante**. Choisir la tête qui contient réellement la bobine voulue. Sur le schéma, « Couleur 1 » est associée à T1 ; si cette bobine était en T2, il faudrait choisir T2.
 4. **Vérifier et lancer.** Cliquer sur **Confirmer et imprimer**. Cliquer sur **Fermer** pour quitter sans imprimer.
 
