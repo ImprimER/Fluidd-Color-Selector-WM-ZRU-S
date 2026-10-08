@@ -32,8 +32,8 @@
 <circle cx="443" cy="156" r="10" fill="#000" stroke="#aab1b7" />
 <text x="459" y="161" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="12" font-weight="400" >T1 · Noir</text>
 <rect x="562" y="135" width="130" height="43" rx="5" fill="#303136"/>
-<circle cx="580" cy="156" r="10" fill="#c99542" stroke="#aab1b7" />
-<text x="596" y="161" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="12" font-weight="400" >T2 · Ocre</text>
+<circle cx="580" cy="156" r="10" fill="#9A6738" stroke="#aab1b7" />
+<text x="596" y="161" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="12" font-weight="400" >T2 · Marron</text>
 <rect x="699" y="135" width="130" height="43" rx="5" fill="#303136"/>
 <circle cx="717" cy="156" r="10" fill="#fff" stroke="#aab1b7" />
 <text x="733" y="161" fill="#f3f5f7" font-family="Arial,sans-serif" font-size="12" font-weight="400" >T3 · Blanc</text>

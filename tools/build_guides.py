@@ -8,7 +8,7 @@ translations = {
         'title': 'Imprimer avec les couleurs',
         'heads': 'Couleurs chargées dans l’imprimante',
         'refresh': 'Actualiser',
-        'empty': 'Vide', 'black': 'Noir', 'ochre': 'Ocre', 'white': 'Blanc',
+        'empty': 'Vide', 'black': 'Noir', 'brown': 'Marron', 'white': 'Blanc',
         'file': '1. Choisir le fichier', 'search': 'Rechercher un fichier',
         'time': 'Durée estimée', 'filament': 'Filament', 'size': 'Taille du fichier', 'height': 'Hauteur',
         'mapping': '2. Couleurs du fichier → têtes (2)', 'color1': 'Couleur 1', 'color2': 'Couleur 2',
@@ -22,7 +22,7 @@ translations = {
         'title': 'Print with colors',
         'heads': 'Colors loaded in the printer',
         'refresh': 'Refresh',
-        'empty': 'Empty', 'black': 'Black', 'ochre': 'Ochre', 'white': 'White',
+        'empty': 'Empty', 'black': 'Black', 'brown': 'Brown', 'white': 'White',
         'file': '1. Choose the file', 'search': 'Search files',
         'time': 'Estimated time', 'filament': 'Filament', 'size': 'File size', 'height': 'Height',
         'mapping': '2. File colors → toolheads (2)', 'color1': 'Color 1', 'color2': 'Color 2',
@@ -76,7 +76,7 @@ def build(locale, t):
          label(630, 691, t['close'], 14, extra='text-anchor="middle"'),
          label(764, 691, t['print'], 13, '#fff', 700, 'text-anchor="middle"'),
          label(846, 744, "by Imprim'ER", 11, '#92969e', extra='text-anchor="end"')]
-    for i, (name, fill) in enumerate([(t['empty'], 'none'), (t['black'], '#000'), (t['ochre'], '#c99542'), (t['white'], '#fff')]):
+    for i, (name, fill) in enumerate([(t['empty'], 'none'), (t['black'], '#000'), (t['brown'], '#9A6738'), (t['white'], '#fff')]):
         x = 288 + i * 137
         p.append(f'<rect x="{x}" y="135" width="130" height="43" rx="5" fill="#303136"/>')
         p.append(f'<circle cx="{x + 18}" cy="156" r="10" fill="{fill}" stroke="#aab1b7" {"stroke-dasharray=\"2 2\"" if i == 0 else ""}/>')

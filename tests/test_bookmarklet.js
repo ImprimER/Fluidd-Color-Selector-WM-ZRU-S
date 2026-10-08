@@ -3,6 +3,21 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 
 const source = fs.readFileSync('src/favori_couleurs_fluidd.js', 'utf8');
+const paletteBlock = source.match(/const palette=(\{[\s\S]*?\n  \});/);
+assert.ok(paletteBlock, 'Toolhead palette missing');
+const paletteFor = language => vm.runInNewContext(`(${paletteBlock[1]})`, { tr: (fr, en) => language === 'fr' ? fr : en });
+const paletteNames = {
+  fr: ['Blanc', 'Beige', 'Marron', 'Gris', 'Noir', 'Cyan', 'Bleu clair', 'Bleu foncé', 'Vert clair', 'Vert foncé', 'Jaune', 'Orange', 'Rose pâle', 'Magenta', 'Rouge', 'Bleu brillant', 'Or', 'Cuivre', 'Argent', 'Multicolore', 'Transparent'],
+  en: ['White', 'Beige', 'Brown', 'Gray', 'Black', 'Cyan', 'Light blue', 'Dark blue', 'Light green', 'Dark green', 'Yellow', 'Orange', 'Light pink', 'Magenta', 'Red', 'Bright blue', 'Gold', 'Copper', 'Silver', 'Multicolor', 'Transparent'],
+};
+for (const language of ['fr', 'en']) {
+  const palette = paletteFor(language);
+  assert.deepEqual(Object.keys(palette), Array.from({ length: 21 }, (_, i) => String(i)), 'Palette must cover screen codes 0–20');
+  assert.deepEqual(Array.from({ length: 21 }, (_, i) => palette[i].name), paletteNames[language], `Frozen ${language} palette names changed`);
+}
+assert.equal(paletteFor('fr')[2].hex, '#9A6738', 'Code 2 must be brown');
+assert.equal(paletteFor('fr')[7].hex, '#0B4BD8', 'Code 7 must be a solid dark blue');
+assert.match(paletteFor('fr')[15].css, /^radial-gradient\(/, 'Code 15 must retain the bright blue effect');
 const tail = fs.readFileSync('tests/fixtures/orca_tail_4.txt', 'utf8');
 const installer = fs.readFileSync('dist/Installer_favori_couleurs_Fluidd.html', 'utf8');
 const installerScript = installer.match(/<script>([\s\S]*?)<\/script>/);
@@ -131,7 +146,7 @@ async function scenario(language, sensors, mapping = true, hasThumbnail = true) 
   assert.equal(loaded.start.disabled, false, 'Loaded toolheads should allow confirmation');
   const chosenSwatches = descendants(loaded.root).filter(element => element.className === 'swatch chosen-head-swatch');
   assert.equal(chosenSwatches.length, loaded.toolSelectors.length, 'Each toolhead choice needs a swatch');
-  assert.deepEqual(chosenSwatches.map(element => element.style.background), ['#000000', '#000000', '#C99542', '#FFFFFF']);
+  assert.deepEqual(chosenSwatches.map(element => element.style.background), ['#000000', '#000000', '#9A6738', '#FFFFFF']);
   loaded.toolSelectors[0].value = '3'; loaded.toolSelectors[0].onchange();
   assert.equal(chosenSwatches[0].style.background, '#FFFFFF', 'Selected swatch must follow the chosen toolhead');
   await loaded.start.onclick();
